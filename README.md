@@ -1,6 +1,6 @@
-LIst of Proejcts done ---
+## LIst of Proejcts done ---
 
-Wish Me Surprise
+### Wish Me Surprise
 
 Tech Stack Used:
 
