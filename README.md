@@ -1,30 +1,59 @@
-# Backend Engineering Showcase
+# Backend & Platform Engineering Showcase
 
-Hi, I’m Akash Bharnuke 👋  
-I’m a backend-focused engineer who enjoys building structured, observable, and production-ready systems.
+Hi, I'm Akash Bharnuke 👋
 
-With 2.5+ years of experience across enterprise workflow platforms and API integrations, I’ve been progressively shifting deeper into Python-based backend architecture, containerization, and observability-driven development.
+I'm a software engineer with a strong focus on backend development, deployment architecture, and production-ready systems.
 
-This repository highlights selected backend projects with emphasis on:
+Over the past 3 years, I've worked on enterprise platforms, API integrations, and full-stack applications while progressively expanding into containerization, infrastructure, observability, and system design.
 
-- REST API design
-- Relational database modeling
-- Docker-based service orchestration
-- Observability (Prometheus, Loki, Tempo)
-- Production-style debugging and monitoring
+This repository highlights projects focused on:
+
+* Backend architecture and REST APIs
+* Relational database design
+* Docker and multi-service orchestration
+* Reverse proxies and deployment infrastructure
+* VPS hosting and production deployments
+* Observability, monitoring, and debugging
+* Scalable system design principles
+
+My goal is to understand not only how software is built, but also how it is deployed, operated, and scaled in production.
 
 
 ---
 
 ## 🚀 Featured Projects
 
-### 1️⃣ Wish Me Surprise  
-**Tech:** Django, PostgreSQL, Angular, Render  
+### 1️⃣ Wish Me Surprise
+**Tech:** Angular, Django, PostgreSQL, Docker, Docker Compose, NGINX, VPS, SSL, Docker Hub
 
-A dynamic web application that generates shareable surprise pages using Django-based backend workflows and relational data modeling.
+A full-stack surprise page generation platform that evolved from a traditional Angular + Django application into a production-style containerized system.
+
+The project focuses on much more than feature development, covering:
+
+- Multi-container architecture using Docker & Docker Compose
+- Frontend and backend containerization
+- PostgreSQL orchestration with health checks
+- Reverse proxy routing with NGINX
+- Docker Hub based deployment workflows
+- Infrastructure-as-code separation through dedicated deployment repositories
+- VPS hosting, domain management, and SSL configuration
+- Production-style deployment and operations practices
+
+Architecture:
+
+```text
+Internet
+    ↓
+Platform NGINX
+    ↓
+WishMeSurprise Stack
+    ├── Angular Frontend
+    ├── Django Backend
+    └── PostgreSQL
+```
 
 → [Project Overview](./wish-me-surprise/README.md)
-→ [Live URL](https://wish-me-surprise.web.app/)
+→ [Live URL](https://wishmesurprise.akashbharnuke.tech/)
 
 
 

@@ -1,44 +1,71 @@
 # Wish Me Surprise
 
-**Tech Stack:** Django, PostgreSQL, Angular, Render  
+**Tech Stack:** Angular, Django, PostgreSQL, Docker, Docker Compose, NGINX, VPS
+
+---
 
 ## Overview
 
-Wish Me Surprise is a dynamic web application that allows users to generate personalized, shareable surprise pages.
+Wish Me Surprise is a full-stack web application that allows users to create and share personalized surprise pages through secure public links.
 
-The backend is built using Django and PostgreSQL, focusing on structured data modeling, controlled public link generation, and dynamic server-side rendering.
+The project began as a traditional Angular + Django application and gradually evolved into a containerized, production-style architecture. Along the way, it became a practical learning ground for backend development, relational data modeling, Docker-based deployments, reverse proxying, and infrastructure separation.
 
-A lightweight Angular frontend interacts with backend endpoints to handle user input and preview flows.
-
+The platform combines a client-side Angular application for user interactions with a Django backend responsible for template rendering, link generation, content persistence, and public page delivery.
 
 ---
 
 ## Problem Statement
 
-## Problem Statement
+The platform allows users to:
 
-The system allows users to:
+* Select predefined surprise templates
+* Submit personalized content
+* Preview generated pages before publishing
+* Generate secure public links
+* Share dynamic surprise pages with others
 
-- Select predefined templates  
-- Submit structured input  
-- Preview rendered output  
-- Generate secure public links  
-- Share final dynamic pages  
+Key engineering challenges included:
 
-Key challenges included secure link generation, expiration handling, relational modeling, and abuse protection.
+* Secure public URL generation
+* Managing link expiration
+* Dynamic server-side rendering
+* Structured relational data storage
+* Protecting public-facing endpoints from abuse
+* Supporting deployment across multiple environments
 
 ---
 
 ## Architecture Overview
 
-The system follows a layered backend structure:
+The application follows a layered architecture:
 
-- **Routing Layer** – Handles incoming HTTP requests
-- **Business Logic Layer** – (preview & generation workflows)
-- **Persistence Layer** – Stores template metadata and user-generated content in PostgreSQL
+### Frontend Layer (Angular)
 
-The Angular frontend interacts with Django endpoints for user flows and preview handling.
+Responsible for:
 
+* User interactions
+* Form submission
+* Preview workflows
+* Public page navigation
+
+### Backend Layer (Django)
+
+Responsible for:
+
+* Request validation
+* Business workflows
+* Template rendering
+* Public link generation
+* Content retrieval
+
+### Persistence Layer (PostgreSQL)
+
+Responsible for:
+
+* Template storage
+* Generated page data
+* Metadata management
+* Expiration tracking
 
 ---
 
@@ -46,101 +73,140 @@ The Angular frontend interacts with Django endpoints for user flows and preview 
 
 ### Preview Flow
 
-1. User selects template and submits input.
-2. Backend validates input.
-3. Data is rendered into dynamic HTML using Django templates.
-4. Rendered preview is returned to frontend.
+1. User selects a template and submits input.
+2. Backend validates incoming data.
+3. Django renders dynamic HTML using stored templates.
+4. Preview content is returned to the frontend.
 
-### Public Link Generation
+### Link Generation Flow
 
-1. Validated input is persisted in database.
-2. A unique public identifier (UUID-based slug) is generated.
-3. Expiration logic is applied.
-4. A shareable URL is returned.
+1. Input is validated and persisted.
+2. A UUID-based public identifier is generated.
+3. Expiration metadata is applied.
+4. A shareable public URL is returned.
 
 ### Public Access Flow
 
-1. Public URL is accessed.
-2. Backend fetches associated template and stored user data.
-3. Final HTML page is dynamically rendered.
-4. Response is served.
+1. Visitor opens the generated link.
+2. Backend retrieves associated content.
+3. Dynamic HTML is rendered using the selected template.
+4. Final page is served to the browser.
 
 ---
 
-UUID-based slugs to prevent predictable link enumeration.
+## System Architecture
 
-Expiration logic to limit long-term exposure.
+```text
+Browser
+    ↓
+Angular Frontend
+    ↓
+Django Backend
+    ↓
+PostgreSQL
+```
 
-Rate limiting to protect public endpoints.
+### Public Page Flow
 
-Clear separation between template definitions and generated content.
+```text
+Visitor
+    ↓
+Public URL (UUID)
+    ↓
+Django Application
+    ↓
+Template + Stored Content
+    ↓
+Rendered HTML Response
+```
 
 ---
-
-## System Architecture Diagram
-
-    ┌────────────────────┐
-    │     Angular UI     │
-    └─────────┬──────────┘
-              │ HTTP Requests
-              ▼
-    ┌────────────────────┐
-    │     Django App     │
-    │  (Routing + Logic) │
-    └─────────┬──────────┘
-              │ ORM
-              ▼
-    ┌────────────────────┐
-    │   PostgreSQL DB    │
-    └────────────────────┘
-
-## Public Access Flow:
-
-User → Public URL (UUID)  
-↓  
-Django retrieves stored data + template   
-↓  
-Dynamic HTML rendered
 
 ## Database Design
 
-The system uses relational modeling in PostgreSQL:
+The system uses PostgreSQL with a relational schema designed around:
 
-- Template metadata storage
-- User-generated structured input
-- Foreign key relationships between template and generated content
-- Expiration timestamp for automatic link validity control
+* Template definitions
+* Generated surprise pages
+* User-provided content
+* Expiration metadata
 
-Design focus:
-- Controlled public exposure
-- Separation between template definition and user data
+Design priorities included:
 
+* Clear ownership of generated content
+* Separation between templates and user data
+* Controlled public exposure
+* Extensibility for future template types
 
 ---
 
 ## Key Backend Concepts
 
-- UUID-based slugs to prevent predictable link enumeration.
-- Expiration logic to limit long-term exposure.
-- Rate limiting to protect public endpoints.
-- Clear separation between template definitions and generated content.  
+* UUID-based public identifiers
+* Expiration-aware content access
+* Dynamic server-side template rendering
+* Input validation and workflow control
+* Relational modeling with PostgreSQL
+* Rate limiting for public endpoints
+* Separation of template metadata and generated content
 
 ---
 
-## Deployment
+## Deployment Evolution
 
-- Hosted on Render  
-- Environment-based configuration  
-- PostgreSQL integration  
+The project originally ran as a traditional frontend and backend setup.
 
-Live Application:
-👉 https://wish-me-surprise.web.app/
+As the project grew, it was migrated toward a production-style deployment architecture involving:
+
+* Dockerized Angular frontend
+* Dockerized Django backend
+* PostgreSQL containerization
+* Docker Compose orchestration
+* NGINX reverse proxy routing
+* Docker Hub image distribution
+* VPS-based deployment
+
+This evolution helped establish clear separation between:
+
+```text
+Application Code
+        ↓
+Deployment Orchestration
+        ↓
+Platform Infrastructure
+```
+
+while keeping the application itself independent of deployment concerns.
+
+---
+
+## Engineering Learnings
+
+This project provided hands-on experience with:
+
+* Backend architecture design
+* Docker containerization
+* Multi-service orchestration
+* Reverse proxy routing
+* Production configuration management
+* Static asset serving in production
+* Health checks and service readiness
+* VPS deployment workflows
+* Infrastructure separation and scalability
+
+---
+
+## Live Application
+
+👉 [ https://wishmesurprise.akashbharnuke.tech/ ] 
 
 ---
 
 ## Future Improvements
 
-- User authentication & ownership of generated links
-- Enhanced template customization
-- Background tasks for scheduled surprise releases
-- Monitoring integration
+* User authentication and ownership tracking
+* Scheduled surprise releases
+* Email notifications
+* Background job processing
+* Monitoring and observability integration
+* CI/CD automation
