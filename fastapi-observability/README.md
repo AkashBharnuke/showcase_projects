@@ -1,5 +1,12 @@
 # FastAPI Containerized Backend with Observability
 
+![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi&logoColor=white)
+![Monitoring](https://img.shields.io/badge/Monitoring-Grafana-F46800?logo=grafana&logoColor=white)
+![Logging](https://img.shields.io/badge/Logging-Loki-0A84FF)
+![Tracing](https://img.shields.io/badge/Tracing-Tempo-7B42BC)
+
+> **Status:** Observability Stack Complete
+
 **Tech Stack:** FastAPI, PostgreSQL, SQLAlchemy, Docker Compose, Nginx, Prometheus, Grafana, Loki, Tempo  
 
 ---

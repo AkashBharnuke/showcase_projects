@@ -1,91 +1,191 @@
 # Wish Me Surprise
 
-**Tech Stack:** Angular, Django, PostgreSQL, Docker, Docker Compose, NGINX, VPS
+> A full-stack web application that evolved into a production-style containerized deployment, exploring backend engineering, infrastructure, and operational practices.
+
+<!-- ![Angular](https://img.shields.io/badge/Angular-17-DD0031?logo=angular&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5-092E20?logo=django&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![NGINX](https://img.shields.io/badge/NGINX-009639?logo=nginx&logoColor=white) -->
+
+![Web Application](https://img.shields.io/badge/Project-Web%20Application-6f42c1)
+![Dockerized](https://img.shields.io/badge/Containerized-Docker-2496ED?logo=docker&logoColor=white)
+![Production Deployment](https://img.shields.io/badge/Deployment-NGINX%20%2B%20VPS-success)
+![Infrastructure](https://img.shields.io/badge/Focus-Infrastructure-orange)
+
+> **Status:** Production Deployment Complete
+
+**Tech Stack:** Angular • Django • PostgreSQL • Docker • Docker Compose • NGINX • VPS
+
+## Project Focus
+
+- ✅ Backend Development
+- ✅ Docker & Containerization
+- ✅ Reverse Proxy & NGINX
+- ✅ VPS Deployment
+- ✅ Production Architecture
 
 ---
 
 ## Overview
 
-Wish Me Surprise is a full-stack web application that allows users to create and share personalized surprise pages through secure public links.
+Wish Me Surprise is a full-stack web application for creating and sharing personalized surprise pages through secure public links.
 
-The project began as a traditional Angular + Django application and gradually evolved into a containerized, production-style architecture. Along the way, it became a practical learning ground for backend development, relational data modeling, Docker-based deployments, reverse proxying, and infrastructure separation.
+The project evolved from a simple Angular + Django application into a production-style deployment, focusing on:
 
-The platform combines a client-side Angular application for user interactions with a Django backend responsible for template rendering, link generation, content persistence, and public page delivery.
+- Backend architecture
+- Relational database design
+- Docker containerization
+- Reverse proxy configuration
+- VPS deployment
+- Infrastructure separation
 
 ---
 
-## Problem Statement
+## Project Evolution
+
+| Phase | Focus | Outcome |
+|--------|-------|---------|
+| **Phase 1** | Full-Stack Application | Angular + Django |
+| **Phase 2** | Database | PostgreSQL migration |
+| **Phase 3** | Containerization | Docker & Compose |
+| **Phase 4** | Production | NGINX + VPS + SSL |
+| **Phase 5** | Infrastructure | Deployment separation |
+
+---
+
+### Evolution Journey
+
+```text
+Phase 1
+────────
+Angular
+    │
+Django
+    │
+SQLite
+
+
+        │
+        ▼
+
+
+Phase 2
+────────
+Angular
+    │
+Django
+    │
+PostgreSQL
+
+
+        │
+        ▼
+
+
+Phase 3
+────────
+Docker Compose
+    ├── Angular
+    ├── Django
+    └── PostgreSQL
+
+
+        │
+        ▼
+
+
+Phase 4
+────────
+Internet
+    │
+NGINX
+    │
+Docker Compose
+    ├── Angular
+    ├── Django
+    └── PostgreSQL
+
+
+        │
+        ▼
+
+
+Phase 5
+────────
+Platform Infrastructure
+        │
+Deployment Repository
+        │
+Application Stack
+```
+
+---
+
+## Component Responsibilities
+
+### Frontend
+
+- Angular
+- Forms
+- Preview workflow
+- Public pages
+
+### Backend
+
+- Django
+- Validation
+- Business logic
+- Template rendering
+- Link generation
+
+### Database
+
+- PostgreSQL
+- Templates
+- User content
+- Expiration metadata
+
+---
+
+# Application Workflow
 
 The platform allows users to:
 
-* Select predefined surprise templates
-* Submit personalized content
-* Preview generated pages before publishing
-* Generate secure public links
-* Share dynamic surprise pages with others
+- Select predefined surprise templates
+- Submit personalized content
+- Preview generated pages before publishing
+- Generate secure public links
+- Share dynamic surprise pages with others
 
 Key engineering challenges included:
 
-* Secure public URL generation
-* Managing link expiration
-* Dynamic server-side rendering
-* Structured relational data storage
-* Protecting public-facing endpoints from abuse
-* Supporting deployment across multiple environments
+- Secure public URL generation
+- Managing link expiration
+- Dynamic server-side rendering
+- Structured relational data storage
+- Protecting public-facing endpoints from abuse
+- Supporting deployment across multiple environments
 
 ---
 
-## Architecture Overview
+# Request Lifecycle
 
-The application follows a layered architecture:
-
-### Frontend Layer (Angular)
-
-Responsible for:
-
-* User interactions
-* Form submission
-* Preview workflows
-* Public page navigation
-
-### Backend Layer (Django)
-
-Responsible for:
-
-* Request validation
-* Business workflows
-* Template rendering
-* Public link generation
-* Content retrieval
-
-### Persistence Layer (PostgreSQL)
-
-Responsible for:
-
-* Template storage
-* Generated page data
-* Metadata management
-* Expiration tracking
-
----
-
-## Request Lifecycle
-
-### Preview Flow
+## Preview Flow
 
 1. User selects a template and submits input.
 2. Backend validates incoming data.
 3. Django renders dynamic HTML using stored templates.
 4. Preview content is returned to the frontend.
 
-### Link Generation Flow
+## Link Generation Flow
 
 1. Input is validated and persisted.
 2. A UUID-based public identifier is generated.
 3. Expiration metadata is applied.
 4. A shareable public URL is returned.
 
-### Public Access Flow
+## Public Access Flow
 
 1. Visitor opens the generated link.
 2. Backend retrieves associated content.
@@ -94,119 +194,122 @@ Responsible for:
 
 ---
 
-## System Architecture
+# Production Architecture
 
 ```text
-Browser
-    ↓
-Angular Frontend
-    ↓
-Django Backend
-    ↓
-PostgreSQL
+                 Internet
+                     │
+                     ▼
+              Platform NGINX
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+          ▼                     ▼
+ Angular Frontend       Django Backend
+                                │
+                                ▼
+                           PostgreSQL
 ```
 
 ### Public Page Flow
 
 ```text
 Visitor
-    ↓
+    │
+    ▼
 Public URL (UUID)
-    ↓
-Django Application
-    ↓
+    │
+    ▼
+Django Backend
+    │
+    ▼
 Template + Stored Content
-    ↓
+    │
+    ▼
 Rendered HTML Response
 ```
 
 ---
 
-## Database Design
+### Design Decisions
 
-The system uses PostgreSQL with a relational schema designed around:
-
-* Template definitions
-* Generated surprise pages
-* User-provided content
-* Expiration metadata
-
-Design priorities included:
-
-* Clear ownership of generated content
-* Separation between templates and user data
-* Controlled public exposure
-* Extensibility for future template types
+- Templates remain immutable after creation.
+- User-generated content is stored separately from templates.
+- UUIDs are used for public page access.
+- Expiration is enforced at the application layer.
+- The schema supports adding new template types without major structural changes.
 
 ---
 
-## Key Backend Concepts
+## Deployment Highlights
 
-* UUID-based public identifiers
-* Expiration-aware content access
-* Dynamic server-side template rendering
-* Input validation and workflow control
-* Relational modeling with PostgreSQL
-* Rate limiting for public endpoints
-* Separation of template metadata and generated content
-
----
-
-## Deployment Evolution
-
-The project originally ran as a traditional frontend and backend setup.
-
-As the project grew, it was migrated toward a production-style deployment architecture involving:
-
-* Dockerized Angular frontend
-* Dockerized Django backend
-* PostgreSQL containerization
-* Docker Compose orchestration
-* NGINX reverse proxy routing
-* Docker Hub image distribution
-* VPS-based deployment
-
-This evolution helped establish clear separation between:
-
-```text
-Application Code
-        ↓
-Deployment Orchestration
-        ↓
-Platform Infrastructure
-```
-
-while keeping the application itself independent of deployment concerns.
+- Dockerized frontend & backend
+- PostgreSQL container
+- Docker Compose orchestration
+- NGINX reverse proxy
+- Docker Hub deployment
+- SSL configuration
+- VPS hosting
 
 ---
 
-## Engineering Learnings
+# Screenshots
 
-This project provided hands-on experience with:
-
-* Backend architecture design
-* Docker containerization
-* Multi-service orchestration
-* Reverse proxy routing
-* Production configuration management
-* Static asset serving in production
-* Health checks and service readiness
-* VPS deployment workflows
-* Infrastructure separation and scalability
+Representative screenshots of the application are available in the `screenshots/` directory.
 
 ---
 
-## Live Application
+# Key Engineering Takeaways
 
-👉 [ https://wishmesurprise.akashbharnuke.tech/ ] 
+### Backend Engineering
+
+- Django application architecture
+- REST workflow implementation
+- Relational database modeling
+- UUID-based public resource management
+- Expiration-aware content access
+- Dynamic server-side template rendering
+- Input validation and workflow control
+- Rate limiting for public endpoints
+- Separation of template metadata and generated content
+
+### Infrastructure
+
+- Docker containerization
+- Docker Compose orchestration
+- Reverse proxy configuration with NGINX
+- Multi-service deployment architecture
+
+### Operations
+
+- VPS deployment workflows
+- SSL configuration
+- Static asset serving
+- Health checks and service readiness
+- Separation of application and infrastructure concerns
+
+---
+
+# Live Demo
+
+🌐 https://wishmesurprise.akashbharnuke.tech/
 
 ---
 
 ## Future Improvements
 
-* User authentication and ownership tracking
-* Scheduled surprise releases
-* Email notifications
-* Background job processing
-* Monitoring and observability integration
-* CI/CD automation
+### Application
+
+- User authentication
+- Scheduled surprises
+- Email notifications
+
+### Backend
+
+- Background job processing
+
+### Platform
+
+- Monitoring & observability
+- CI/CD pipeline
+
