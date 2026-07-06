@@ -111,6 +111,46 @@ The project demonstrates:
 
 ---
 
+## 4️⃣ MentorAI
+
+**Tech Stack**
+
+`Node.js` • `Express` • `OpenAI API` • `JavaScript` • `Tailwind CSS` • `Docker` • `NGINX`
+
+An AI-powered conversational platform that simulates discussions with different mentor personas using contextual prompting and LLM-based response generation.
+
+Rather than focusing only on chat functionality, the project explores how modern AI applications can be engineered with clean backend architecture, prompt design, and production-ready deployment practices.
+
+The project demonstrates:
+
+- Multi-persona conversational AI
+- Context-aware prompt engineering
+- Backend API integration with OpenAI
+- Modular Express application architecture
+- Responsive chat interface
+- Containerized deployment
+- Reverse proxy configuration with NGINX
+- Production-ready hosting workflow
+
+### Architecture
+
+```text
+Browser
+    │
+NGINX
+    │
+Express Backend
+    │
+OpenAI API
+```
+
+**Links**
+
+- 📄 [Project Overview](./mentor-ai/README.md)
+- 🌐 [Live Demo](https://mentorai.akashbharnuke.tech)
+
+---
+
 # 🧠 Engineering Principles
 
 Across these projects, I focus on building systems that are maintainable, observable, and production-oriented.
