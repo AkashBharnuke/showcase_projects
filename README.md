@@ -2,87 +2,70 @@
 
 Hi, I'm **Akash Bharnuke** 👋
 
-I'm a software engineer with a strong interest in backend engineering, deployment architecture, developer tooling, and production-ready systems.
+I'm a **Backend Software Engineer with 3+ years of experience** building enterprise applications and modern backend systems using Python, FastAPI, Django, PostgreSQL, and Docker.
 
-Over the past three years, I've worked on enterprise platforms, API integrations, and full-stack applications while progressively expanding into containerization, infrastructure, observability, deployment automation, and system design.
+This repository showcases projects across **backend engineering, AI-powered systems, observability, infrastructure, and developer tooling** — with a focus on designing reliable services, containerized applications, and production-oriented architectures.
 
-This repository serves as an engineering portfolio showcasing projects that explore different aspects of modern software engineering, including:
-
-- Backend architecture and REST API development
-- Relational database design
-- Docker and multi-service orchestration
-- Reverse proxies and deployment infrastructure
-- VPS hosting and production deployments
-- Observability, monitoring, and debugging
-- Developer tooling and terminal applications
-- Scalable system design principles
-
-My goal is not only to build software, but also to understand how it is deployed, operated, monitored, and scaled in production environments.
+The projects reflect my interest in building systems that go beyond simply implementing features, with emphasis on **architecture, performance, observability, deployment, and maintainability**.
 
 ---
 
 # 🚀 Featured Projects
 
-## 1️⃣ Wish Me Surprise
+## 1️⃣ AI Intelligence Platform
 
 **Tech Stack**
 
-`FastAPI` • `Django` • `PostgreSQL` • `Docker` • `Docker Compose` • `NGINX` • `VPS` • `SSL` • `Docker Hub` • `Angular`
+`Python` • `FastAPI` • `PostgreSQL` • `Qdrant` • `Docker` • `OpenTelemetry` • `Prometheus` • `Grafana` • `Loki` • `Tempo` • `Langfuse`
 
-A full-stack surprise page generation platform that evolved from a traditional Angular + Django application into a production-style containerized deployment.
+An AI middleware and observability platform built around a centralized FastAPI gateway for AI and RAG applications.
 
-The project focuses on:
+The platform explores how AI workloads can be built with observability as a first-class concern, covering request correlation, structured logging, application and business metrics, distributed tracing, retrieval telemetry, and LLM interaction monitoring.
 
-- Multi-container architecture using Docker & Docker Compose
-- Frontend and backend containerization
-- PostgreSQL orchestration with health checks
-- Reverse proxy routing with NGINX
-- Docker Hub deployment workflows
-- Infrastructure-as-code separation
-- VPS hosting, domain management, and SSL configuration
-- Production deployment and operations practices
+### Highlights
 
-### Architecture
-
-```text
-Internet
-    │
-Platform NGINX
-    │
-WishMeSurprise Stack
-    ├── Angular Frontend
-    ├── Django Backend
-    └── PostgreSQL
-```
+- Centralized FastAPI gateway for AI/RAG requests
+- RAG pipeline with vector search using Qdrant
+- Structured logging and request correlation
+- Prometheus metrics with Grafana dashboards
+- Centralized logs using Loki
+- OpenTelemetry instrumentation and distributed tracing with Tempo
+- LLM observability with Langfuse
+- Fully containerized development and observability stack
 
 **Links**
 
-- 📄 [Project Overview](./wish-me-surprise/README.md)
-- 🌐 [Live Demo](https://wishmesurprise.akashbharnuke.tech/)
+- 📄 [Project Overview](./ai-intelligence-platform/README.md)
 
 ---
 
-## 2️⃣ FastAPI Backend with Observability
+
+
+
+## 2️⃣ Wish Me Surprise
 
 **Tech Stack**
 
-`FastAPI` • `PostgreSQL` • `Docker Compose` • `Prometheus` • `Grafana` • `Loki` • `Tempo` • `NGINX`
+`Django` • `Angular` • `PostgreSQL` • `Docker` • `Docker Compose` • `NGINX` • `VPS` • `SSL`
 
-A production-inspired backend environment demonstrating container orchestration, centralized logging, metrics collection, distributed tracing, and monitoring.
+A full-stack web application that evolved into a containerized, production-style deployment running on a VPS.
 
-Highlights include:
+The project focuses on backend development, multi-container deployment, reverse proxy configuration, and production infrastructure.
 
-- REST API architecture
-- Multi-service Docker environment
-- Metrics collection with Prometheus
-- Dashboards using Grafana
-- Centralized logging with Loki
-- Distributed tracing with Tempo
-- Production-style debugging workflow
+### Highlights
+
+* Django REST backend with PostgreSQL
+* Angular frontend
+* Multi-container architecture using Docker Compose
+* NGINX reverse proxy and service routing
+* PostgreSQL health checks and container orchestration
+* VPS deployment with domain and SSL configuration
+* Separation of application and infrastructure concerns
 
 **Links**
 
-- 📄 [Project Overview](./fastapi-observability/README.md)
+* 📄 [Project Overview](./wish-me-surprise/README.md)
+* 🌐 [Live Demo](https://wishmesurprise.akashbharnuke.tech/)
 
 ---
 
