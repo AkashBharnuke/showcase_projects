@@ -3,41 +3,16 @@
 An AI-powered chatbot that simulates conversations with **Hitesh Choudhary** and **Piyush Garg** using OpenAI, persona engineering, and contextual prompting.
 
 ![Persona AI](https://img.shields.io/badge/Project-Persona%20AI-purple)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript\&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js\&logoColor=white)
-![Express](https://img.shields.io/badge/Express-Backend-000000?logo=express\&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-412991?logo=openai\&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/UI-TailwindCSS-06B6D4?logo=tailwindcss\&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-Backend-000000?logo=express&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o-412991?logo=openai&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/UI-TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 
 ---
 
-## 🔗 Links
-
-* <a href="https://mentorai.akashbharnuke.tech">🌐 **[ Live Demo ]**</a>
-* <a href="https://github.com/AkashBharnuke/MentorAI">💻 **[ GitHub ]**</a>
-* 🎥 **Demo Video:** `demo/mentor-ai-demo.mp4`
-
----
-
-## 📸 Project Preview
-
-![MentorAI Home](images/mentorai-home.png)
-
----
-
-## 🎥 Demo
-
-A short walkthrough of MentorAI is available in the `demo/` directory.
-
-```
-demo/
-└── mentorai-demo.mp4
-```
-
----
-
-## 🚀 Overview
+## Overview
 
 MentorAI is a persona-driven LLM application that recreates conversations inspired by two well-known software engineering educators—**Hitesh Choudhary** and **Piyush Garg**.
 
@@ -47,19 +22,19 @@ The project was built entirely with **Vanilla JavaScript**, **Express.js**, and 
 
 ---
 
-## ✨ Key Highlights
+## Key Highlights
 
-* 🎭 Two distinct AI mentor personas
-* 🧠 Custom persona engineering
-* 💬 Multi-turn conversational context
-* ⚡ Modular prompt construction
-* 📝 Markdown rendering with syntax-highlighted code blocks
-* 🐳 Dockerized deployment
-* 🌐 Self-hosted on a VPS behind Nginx
+* Two distinct AI mentor personas
+* Custom persona engineering
+* Multi-turn conversational context
+* Modular prompt construction
+* Markdown rendering with syntax-highlighted code blocks
+* Dockerized deployment
+* Self-hosted on a VPS behind Nginx
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer      | Technologies                            |
 | ---------- | --------------------------------------- |
@@ -71,7 +46,7 @@ The project was built entirely with **Vanilla JavaScript**, **Express.js**, and 
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```text
 Browser
@@ -99,7 +74,7 @@ Assistant Response
 
 ---
 
-## 📚 What I Learned
+## What I Learned
 
 Building MentorAI helped me explore several concepts beyond simply integrating an LLM.
 
@@ -113,8 +88,16 @@ Building MentorAI helped me explore several concepts beyond simply integrating a
 
 ---
 
-## 📁 Repository
+## Project Preview
 
-The complete source code, documentation, and deployment configuration are available in the main MentorAI repository.
+![MentorAI Home](images/mentorai-home.png)
 
-This showcase page provides a high-level overview of the project, while the primary repository contains the implementation details, architecture documentation, and setup instructions.
+---
+
+## Links
+
+* 🌐 [Live Demo](https://mentorai.akashbharnuke.tech)
+* 💻 [GitHub Repository](https://github.com/AkashBharnuke/MentorAI)
+* 🎥 Demo Video: `demo/mentor-ai-demo.mp4`
+
+This showcase page provides a high-level overview of the project. The GitHub repository contains the full implementation, architecture documentation, and setup instructions.

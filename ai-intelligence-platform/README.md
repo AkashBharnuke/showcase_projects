@@ -1,15 +1,5 @@
 # AI Intelligence Platform
 
-<!-- ![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge\&logo=fastapi\&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge\&logo=docker\&logoColor=white)
-![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge\&logo=prometheus\&logoColor=white)
-![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge\&logo=grafana\&logoColor=white)
-![Loki](https://img.shields.io/badge/Loki-111827?style=for-the-badge\&logo=grafana\&logoColor=white)
-![Tempo](https://img.shields.io/badge/Tempo-111827?style=for-the-badge\&logo=grafana\&logoColor=white)
-![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-7B61FF?style=for-the-badge\&logo=opentelemetry\&logoColor=white)
-![Langfuse](https://img.shields.io/badge/Langfuse-111827?style=for-the-badge) -->
-
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
@@ -191,9 +181,7 @@ AI quality evaluation, hallucination detection, advanced guardrails, and other A
 
 ## Demo
 
-A walkthrough of the running platform and its observability stack is available here:
-
-**[▶ View Demo Recording](./demo/demo.mp4)**
+A walkthrough recording of the running platform and its observability stack is planned for the `demo/` directory.
 
 ---
 

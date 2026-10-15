@@ -116,3 +116,11 @@ This prevents unnecessary cross-service exposure and mirrors production-style is
 ## Why This Project Matters
 
 This project demonstrates backend systems thinking — integrating application logic, container orchestration, and observability into a cohesive, debuggable architecture.
+
+---
+
+## Diagrams
+
+* [Docker Container Flow](./diagrams/Docker%20Container%20Flow.png)
+* [Docker Network Flow](./diagrams/Docker%20Network%20Flow.png)
+* [Request Flow](./diagrams/Request%20Flow.png)

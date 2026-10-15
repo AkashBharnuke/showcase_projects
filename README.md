@@ -12,25 +12,53 @@ The projects reflect my interest in building systems that go beyond simply imple
 
 # 🚀 Featured Projects
 
-## 1️⃣ AI Intelligence Platform
+Ordered by engineering depth — the projects that demonstrate the most system design, reliability work, and real-world verification come first.
+
+## 1️⃣ WatchTower
+
+**Tech Stack**
+
+`Python` • `FastAPI` • `PostgreSQL` • `SQLAlchemy` • `Prometheus` • `Loki` • `Grafana` • `Grafana Alloy` • `Docker Compose`
+
+An operational observability platform that answers "what's running, what's healthy, what failed" across a personal VPS running several other projects at once.
+
+It builds on proven tools (Prometheus, Loki, Grafana) instead of reinventing them, and adds custom logic only where it's actually needed: a service registry, a health-state rollup engine, and a bridge that feeds that health data into Grafana's alerting.
+
+### Highlights
+
+- Service registry with scheduled health checks and status rollup across projects
+- Health state exported as Prometheus metrics, so Grafana Alerting can act on it directly
+- Infrastructure telemetry (CPU, memory, disk, container stats) via Node Exporter and cAdvisor
+- 9 provisioned Grafana alert rules, verified against a real stop/start failure cycle
+- A real alerting bug ("no data" read as "healthy") was caught through live testing, not just code review, and fixed
+- Spec-driven development with documented design decisions
+
+**Status:** Core platform (phases 0–4) complete and tested. Alerting is implemented and verified; not yet deployed to production infrastructure.
+
+**Links**
+
+- 📄 [Project Overview](./watchtower/README.md)
+
+---
+
+## 2️⃣ AI Intelligence Platform
 
 **Tech Stack**
 
 `Python` • `FastAPI` • `PostgreSQL` • `Qdrant` • `Docker` • `OpenTelemetry` • `Prometheus` • `Grafana` • `Loki` • `Tempo` • `Langfuse`
 
-An AI middleware and observability platform built around a centralized FastAPI gateway for AI and RAG applications.
+A middleware gateway that sits between AI applications and LLM providers, built to answer a specific question: how do you make an AI system observable, not just functional?
 
-The platform explores how AI workloads can be built with observability as a first-class concern, covering request correlation, structured logging, application and business metrics, distributed tracing, retrieval telemetry, and LLM interaction monitoring.
+Every request passing through the gateway is tracked end-to-end — from the initial API call, through document retrieval, to the LLM response — so metrics, logs, and traces can all be tied back to the same request.
 
 ### Highlights
 
-- Centralized FastAPI gateway for AI/RAG requests
+- Centralized FastAPI gateway for AI and retrieval-augmented generation (RAG) requests
 - RAG pipeline with vector search using Qdrant
-- Structured logging and request correlation
+- Structured logging and request correlation across the whole pipeline
 - Prometheus metrics with Grafana dashboards
-- Centralized logs using Loki
-- OpenTelemetry instrumentation and distributed tracing with Tempo
-- LLM observability with Langfuse
+- Centralized logs via Loki, distributed tracing via OpenTelemetry and Tempo
+- LLM-level observability (token usage, latency) via Langfuse
 - Fully containerized development and observability stack
 
 **Links**
@@ -39,18 +67,63 @@ The platform explores how AI workloads can be built with observability as a firs
 
 ---
 
+## 3️⃣ Platform VPS Infra
 
+**Tech Stack**
 
+`Bash` • `Nginx` • `Docker Compose` • `Certbot`
 
-## 2️⃣ Wish Me Surprise
+The deployment system that runs five live projects on a single VPS, driven entirely by one plain-text config file per project instead of hand-edited server config.
+
+It was built as a direct response to two real incidents in an earlier, ad hoc version — a config overwrite and a routing collision — and is designed so neither can happen again by construction, not just by convention.
+
+### Highlights
+
+- Deploy scripts scoped to one project's files at a time — no wildcard operations that could touch another project by accident
+- Automatic rollback if a config change would break the server, verified by a test script
+- Duplicate site names are rejected before any file is written
+- Certificates issued through a method that keeps all routing config in Git, with no out-of-band changes
+- Fully in production: five projects deployed and live
+
+**Links**
+
+- 📄 [Project Overview](./platform_vps_infra/README.md)
+
+---
+
+## 4️⃣ PrivatePlatform
+
+**Tech Stack**
+
+`Bash` • `WireGuard` • `Nginx` • `UFW` • `Docker` • `systemd`
+
+A private network layer for a personal VPS: a VPN plus a second, fully isolated web server, so self-hosted tools don't end up exposed on the public internet by default.
+
+Built as the reusable foundation that WatchTower (above) runs behind, with a scripted process for onboarding the next private application the same way.
+
+### Highlights
+
+- One-command setup pipeline, safe to re-run without duplicating state
+- Onboarding script that automatically rejects any app config that would expose it to the public internet — built after that exact mistake happened once
+- Private web server kept fully separate from the public-facing one, so a mistake in one can't affect the other
+- Two real applications onboarded so far (WatchTower and a Grafana instance)
+- Nine written specs tracking what's decided, proposed, or still open
+
+**Status:** In active development, not production-complete. Core networking is live; encryption (TLS) and a few isolation details are still open decisions, tracked explicitly rather than skipped.
+
+**Links**
+
+- 📄 [Project Overview](./private-platform/README.md)
+
+---
+
+## 5️⃣ Wish Me Surprise
 
 **Tech Stack**
 
 `Django` • `Angular` • `PostgreSQL` • `Docker` • `Docker Compose` • `NGINX` • `VPS` • `SSL`
 
-A full-stack web application that evolved into a containerized, production-style deployment running on a VPS.
-
-The project focuses on backend development, multi-container deployment, reverse proxy configuration, and production infrastructure.
+A full-stack web app for creating and sharing personalized surprise pages through secure links — the project that evolved step by step from a simple prototype into a production deployment.
 
 ### Highlights
 
@@ -59,8 +132,8 @@ The project focuses on backend development, multi-container deployment, reverse 
 * Multi-container architecture using Docker Compose
 * NGINX reverse proxy and service routing
 * PostgreSQL health checks and container orchestration
-* VPS deployment with domain and SSL configuration
-* Separation of application and infrastructure concerns
+* Live on a VPS with its own domain and SSL certificate
+* Application code kept separate from infrastructure/deployment concerns
 
 **Links**
 
@@ -69,51 +142,67 @@ The project focuses on backend development, multi-container deployment, reverse 
 
 ---
 
-## 3️⃣ Dockyard
+## 6️⃣ Retro Game Vault
+
+**Tech Stack**
+
+`TypeScript` • `React` • `Vite` • `Tailwind CSS` • `IndexedDB` • `Docker` • `NGINX`
+
+A browser-based launcher for classic J2ME (feature-phone era) games. Bring your own game file and play it instantly — nothing installs, nothing uploads, nothing leaves your device.
+
+The interesting engineering problem here wasn't the UI — it was wiring a real, unmodified third-party game emulator into a web app it was never designed to be embedded in.
+
+### Highlights
+
+- Instant in-browser play for any compatible game file, fully client-side
+- Game library stored on-device (IndexedDB) — no backend, nothing uploaded
+- Integrated a third-party emulator through a single messaging contract instead of forking its source
+- Found and fixed a pointer-rotation bug that only showed up under real mouse input, not in automated tests
+- End-to-end test coverage (Playwright) for the full play-through flow
+
+**Links**
+
+- 📄 [Project Overview](./retro-game-vault/README.md)
+- 🌐 [Live Demo](https://retrogamevault.akashbharnuke.tech)
+
+---
+
+## 7️⃣ Dockyard
 
 **Tech Stack**
 
 `Python` • `Textual` • `Docker SDK`
 
-A terminal-native Docker management application built to explore developer tooling, terminal user interfaces, and Docker Engine integration.
+A terminal-based tool for managing Docker containers — start, stop, inspect, and monitor containers without leaving the command line or opening a separate GUI.
 
-The project demonstrates:
+### Highlights
 
-- Interactive terminal UI development
-- Docker Engine API integration
-- Container lifecycle management
-- Service-oriented architecture
-- Reactive application design
-- Developer experience focused tooling
+- Interactive terminal UI built with Textual
+- Live container list, logs, and resource metrics via the Docker Engine API
+- Start / stop / restart / delete containers from the interface
+- Packaged as a standalone executable for easy distribution
 
 **Links**
 
 - 📄 [Project Overview](./dockyard/README.md)
 - 🌐 [Live Demo](https://dockyard.akashbharnuke.tech/)
 
-
 ---
 
-## 4️⃣ MentorAI
+## 8️⃣ MentorAI
 
 **Tech Stack**
 
 `Node.js` • `Express` • `OpenAI API` • `JavaScript` • `Tailwind CSS` • `Docker` • `NGINX`
 
-An AI-powered conversational platform that simulates discussions with different mentor personas using contextual prompting and LLM-based response generation.
+An AI chatbot that simulates conversations with different mentor personas, each with its own teaching style, built directly on the OpenAI API without an orchestration framework.
 
-Rather than focusing only on chat functionality, the project explores how modern AI applications can be engineered with clean backend architecture, prompt design, and production-ready deployment practices.
+### Highlights
 
-The project demonstrates:
-
-- Multi-persona conversational AI
-- Context-aware prompt engineering
-- Backend API integration with OpenAI
-- Modular Express application architecture
-- Responsive chat interface
-- Containerized deployment
-- Reverse proxy configuration with NGINX
-- Production-ready hosting workflow
+- Two distinct AI personas with separately engineered prompts
+- Multi-turn conversation context carried across messages
+- Backend built in plain Express, with no LangChain or similar framework
+- Deployed behind NGINX on a VPS
 
 ### Architecture
 
@@ -131,6 +220,31 @@ OpenAI API
 
 - 📄 [Project Overview](./mentor-ai/README.md)
 - 🌐 [Live Demo](https://mentorai.akashbharnuke.tech)
+
+---
+
+## 9️⃣ KnowWhere
+
+**Tech Stack**
+
+`TypeScript` • `React` • `Vite` • `Leaflet` • `Python` • `FastAPI` • `Docker` • `NGINX`
+
+A location-aware web app that finds nearby places — cafes, restaurants, hospitals, fuel stations — on an interactive map, using free OpenStreetMap data instead of a paid maps API.
+
+The backend normalizes raw map data into distances and addresses, behind a small in-memory cache and rate limiter. This project is still evolving: it works end-to-end locally, but has no automated tests and no deployment beyond local Docker Compose yet.
+
+### Highlights
+
+- Browser geolocation with a configurable search radius and category filter
+- Map and list views kept in sync by selection state
+- Backend distance/address calculation from raw OpenStreetMap data, with an in-memory TTL cache and per-IP rate limiting
+- Three-container Docker Compose stack (frontend, backend, Nginx reverse proxy) with a multi-stage frontend build
+
+**Status:** Functional full-stack project, Docker Compose only. No automated tests, no CI, and no hosted deployment yet — in active development, not production-complete.
+
+**Links**
+
+- 📄 [Project Overview](./knowwhere/README.md)
 
 ---
 

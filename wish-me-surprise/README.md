@@ -2,16 +2,9 @@
 
 > A full-stack web application that evolved into a production-style containerized deployment, exploring backend engineering, infrastructure, and operational practices.
 
-<!-- ![Angular](https://img.shields.io/badge/Angular-17-DD0031?logo=angular&logoColor=white)
-![Django](https://img.shields.io/badge/Django-5-092E20?logo=django&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
-![NGINX](https://img.shields.io/badge/NGINX-009639?logo=nginx&logoColor=white) -->
-
 ![Web Application](https://img.shields.io/badge/Project-Web%20Application-6f42c1)
 ![Dockerized](https://img.shields.io/badge/Containerized-Docker-2496ED?logo=docker&logoColor=white)
 ![Production Deployment](https://img.shields.io/badge/Deployment-NGINX%20%2B%20VPS-success)
-![Infrastructure](https://img.shields.io/badge/Focus-Infrastructure-orange)
 
 > **Status:** Production Deployment Complete
 
@@ -253,9 +246,9 @@ Rendered HTML Response
 
 ---
 
-# Screenshots
+# Demo
 
-Representative screenshots of the application are available in the `screenshots/` directory.
+A walkthrough recording of the application is available in [`demo/wish+me_surprise_demo_v2.mp4`](./demo/wish+me_surprise_demo_v2.mp4).
 
 ---
 

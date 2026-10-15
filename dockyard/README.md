@@ -11,9 +11,6 @@ Dockyard provides an interactive terminal interface for managing Docker containe
 
 > **Status:** Production Ready Demo
 
-<!-- ![License](https://img.shields.io/badge/License-MIT-green) -->
-
-<!-- > **Status:** MVP Complete • Deployed -->
 ---
 
 ## Motivation

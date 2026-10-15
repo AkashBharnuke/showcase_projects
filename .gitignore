@@ -1,0 +1,63 @@
+# Environment files with real secrets — keep templates
+.env
+.env.*
+!.env.example
+!.env.sample
+*.env.local
+
+# Credentials, keys, certificates
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.*
+*.kdbx
+credentials.json
+secrets.yml
+secrets.yaml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Node / JS / TS
+node_modules/
+dist/
+build/
+.vite/
+.next/
+.turbo/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+
+# Docker
+*.pid
+
+# Logs
+*.log
+logs/
+
+# Local databases / data dumps
+*.sqlite3
+*.db
+*.dump
+*.sql.gz
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Terraform / infra state (if ever added)
+*.tfstate
+*.tfstate.backup
+.terraform/
